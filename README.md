@@ -1,4 +1,4 @@
-#ShellCode Stub*ing* Templates
+# ShellCode Stub*ing* Templates
 
 A template to manipulate/encrypt (X64) windows shellcode and play with EDR detection capabilities. Given a shellcode as input it return an "encrypted" shellcode which when will decrypt itself and run the original payload. Can be used as basis to implement more complex things.
 
