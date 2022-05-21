@@ -21,6 +21,7 @@ loop:
     inc    rcx
     inc    rcx
     dec    rax
+    dec    rax
     jnz    loop
     ; replace key bytes with NOP
     mov  byte [r8+1],0x90 
