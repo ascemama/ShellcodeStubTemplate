@@ -19,4 +19,4 @@ else {
     }
 
 Invoke-Expression -Command "python.exe $EncPath -f payload.bin -o enc_payload.bin "
-move-item   enc_payload.bin $CopyPayloadTo
+Copy-Item -Force  enc_payload.bin $CopyPayloadTo
